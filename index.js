@@ -32,7 +32,7 @@ app.listen(PORT, async () => {
         console.log(error);
       }
     });
-    task.start();
+    // task.start();
     await scrape();
   } catch (error) {
     console.log(error);
