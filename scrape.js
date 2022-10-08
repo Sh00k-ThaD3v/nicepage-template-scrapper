@@ -49,7 +49,6 @@ const scrapePage = async (url, directory) => {
     });
   } catch (error) {
     console.log(error);
-    process.exit();
   }
 };
 
@@ -98,7 +97,6 @@ const main = async () => {
     }
   } catch (error) {
     console.log(error);
-    process.exit();
   }
 };
 
