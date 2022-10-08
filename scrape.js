@@ -41,6 +41,7 @@ const scrapePage = async (url, directory) => {
     });
   } catch (error) {
     console.log(error);
+    process.exit();
   }
 };
 
