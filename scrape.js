@@ -8,6 +8,9 @@ import { uploadFile } from "./gdrive.js";
 
 class MyPlugin {
   apply(registerAction) {
+    registerAction("error", async ({ error }) => {
+      console.error(error);
+    });
     registerAction("afterResponse", async ({ response }) => {
       if (response.statusCode === 404) {
         return null;
@@ -38,6 +41,11 @@ const scrapePage = async (url, directory) => {
       recursive: true,
       maxRecursiveDepth: 1,
       plugins: [new MyPlugin()],
+      request: {
+        headers: {
+          referer: "https://nicepage.com",
+        },
+      },
     });
   } catch (error) {
     console.log(error);
