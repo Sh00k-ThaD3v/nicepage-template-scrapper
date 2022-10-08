@@ -45,6 +45,7 @@ const scrapePage = async (url, directory) => {
         headers: {
           referer: "https://nicepage.com",
         },
+        retryCount: 0,
       },
     });
   } catch (error) {
