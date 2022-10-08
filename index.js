@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 app.listen(PORT, async () => {
   try {
     console.log(`Server running on port: ${PORT}`);
-    const task = cron.schedule("*/1 * * * *", async () => {
+    const task = cron.schedule("*/5 * * * *", async () => {
       try {
         await axios.get(process.env.SERVER_URL);
       } catch (error) {
