@@ -79,7 +79,7 @@ const main = async () => {
         const buffer = fs.readFileSync(`./templates/${url.split(".")[0]}.zip`);
         await uploadFile(
           `${url.split(".")[0]}.zip`,
-          "1htMc4FxcoHWgmoKdeQb1WLGShuVsuILp",
+          process.env.FOLDER_ID,
           Readable.from(buffer),
           "application/zip"
         );
