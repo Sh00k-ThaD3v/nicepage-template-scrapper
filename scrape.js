@@ -26,7 +26,10 @@ const scrapePage = async (url, directory) => {
       urls: [url],
       directory: `./templates/${directory}`,
       urlFilter: function (url) {
-        if (url.includes("capp.nicepge.com")) {
+        if (
+          url.includes("capp.nicepge.com") ||
+          url.includes("nicepage.io/nicepage.css")
+        ) {
           return true;
         }
         if (
@@ -75,10 +78,6 @@ const main = async () => {
       const url = `website${i}.nicepage.io/`;
       const data = await scrapePage(`https://${url}`, url.split(".")[0]);
       if (data?.[0]?.saved) {
-        fs.copyFileSync(
-          "./nicepage.css",
-          `./templates/${url.split(".")[0]}/nicepage.css`
-        );
         await zipDirectory(
           `./templates/${url.split(".")[0]}/`,
           `./templates/${url.split(".")[0]}.zip`
